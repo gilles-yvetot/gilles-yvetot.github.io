@@ -10,6 +10,33 @@
 				background:#ecf0f1;
 				color:#2c3e50;
 			}
+			.padding{
+				padding: 10px;
+			}
+			.vtop{
+				vertical-align: top;
+			}
+			#profile{
+				width:150px;
+				height:150px;
+				background-image: url("https://scontent-mia1-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/12644861_10153901322974393_5731141098433000644_n.jpg?oh=734921cab8e496d074db48f605a83e0e&oe=572B81E8");
+				background-size: contain;
+				position: relative;
+    			border-radius: 10%;
+				border: 2px solid #34495e;
+				display: inline-block;
+
+			}
+			#profile:before			{
+				position: absolute;
+				top:0;
+				right: 0;
+				left:0;
+				bottom: 0;
+				border: 5px solid #2c3e50;
+    			border-radius: 7%;
+				content:" ";
+			}
 		</style>
 
 		<!-- Latest compiled and minified JavaScript -->
@@ -20,16 +47,32 @@
 		
 	</head>
 	<body>
-		<div class="container-fluid">
-			<div class="main-box">
-				<h2></h2>
-				<div></div>
-			</div>
-		</div>
-		<div class="container-fluid">
-			<div class="main-box">
-				<h2></h2>
-				<div></div>
+		<div class="container padding">
+			<div class="main-box padding">
+				<h2>
+					<i class="fa fa-child"></i>
+					<span>Profile</span>
+				</h2>
+				<div class="row">
+					<div class="col-sm-4">
+						<div id="profile"></div>
+					</div>
+					<div class="col-sm-4">
+						<h3>GILLES YVETOT</h3>
+						<h4>Full Stack Developer</h4>
+						<h4>Project Manager</h4>
+					</div>
+					<div class="col-sm-4">
+						<div class="row">
+							<div class="col-xs-6 text-right">Address</div>
+							<div class="col-xs-6 text-left">
+								253 NE 2<sup>ND</sup>St<br/>
+								Unit 218 <br/>
+								Miami,FL 33132 FL
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>
