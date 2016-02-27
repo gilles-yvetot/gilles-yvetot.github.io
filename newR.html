@@ -157,6 +157,15 @@
 		text-transform: uppercase;
 		letter-spacing: 1px;
 	}
+	.section-title{
+		float:left;
+		max-width: 100px;
+		margin: 20px 30px;
+	}
+	.section-content{
+		width: 66%;
+		margin-left: 33%;
+	}
 	#contact-info{
 		/*heaxagon generated in svg by the fct below and then translated into data URI (width of250px)*/
 		background-image: url('data:image/svg+xml;utf8,<svg width="250" height="250" xmlns="http://www.w3.org/2000/svg" version="1.1"><polygon points="125,2 248,83 248,166 125,248 2,166 2,83 " style="stroke: #ccc; stroke-width: 1px; fill: none;"></polygon></svg>');
@@ -180,6 +189,9 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> 
+	<script type="text/javascript"> // pin element
+	(function(e){"use strict";e.fn.pin=function(t){var n=0,r=[],i=false,s=e(window);t=t||{};var o=function(){for(var n=0,o=r.length;n<o;n++){var u=r[n];if(t.minWidth&&s.width()<=t.minWidth){if(u.parent().is(".pin-wrapper")){u.unwrap()}u.css({width:"",left:"",top:"",position:""});if(t.activeClass){u.removeClass(t.activeClass)}i=true;continue}else{i=false}var a=t.containerSelector?u.closest(t.containerSelector):e(document.body);var f=u.offset();var l=a.offset();var c=u.offsetParent().offset();if(!u.parent().is(".pin-wrapper")){u.wrap("<div class='pin-wrapper'>")}var h=e.extend({top:0,bottom:0},t.padding||{});u.data("pin",{pad:h,from:(t.containerSelector?l.top:f.top)-h.top,to:l.top+a.height()-u.outerHeight()-h.bottom,end:l.top+a.height(),parentTop:c.top});u.css({width:u.outerWidth()});u.parent().css("height",u.outerHeight())}};var u=function(){if(i){return}n=s.scrollTop();var o=[];for(var u=0,a=r.length;u<a;u++){var f=e(r[u]),l=f.data("pin");if(!l){continue}o.push(f);var c=l.from-l.pad.bottom,h=l.to-l.pad.top;if(c+f.outerHeight()>l.end){f.css("position","");continue}if(c<n&&h>n){!(f.css("position")=="fixed")&&f.css({left:f.offset().left,top:l.pad.top}).css("position","fixed");if(t.activeClass){f.addClass(t.activeClass)}}else if(n>=h){f.css({left:"",top:h-l.parentTop+l.pad.top}).css("position","absolute");if(t.activeClass){f.addClass(t.activeClass)}}else{f.css({position:"",top:"",left:""});if(t.activeClass){f.removeClass(t.activeClass)}}}r=o};var a=function(){o();u()};this.each(function(){var t=e(this),n=e(this).data("pin")||{};if(n&&n.update){return}r.push(t);e("img",this).one("load",o);n.update=a;e(this).data("pin",n)});s.scroll(u);s.resize(function(){o()});o();s.load(a);return this}})(jQuery)
+	</script>
 	<script type="text/javascript">
 	function generateSVGhexagone(width){
 		if(!width || isNaN(width))
@@ -203,6 +215,7 @@
 	}
 	$(function(){
 		//generateSVGhexagone(250);
+		// $(".section-title").pin()
 	})
 
 	</script>
@@ -258,38 +271,149 @@
 				</div>
 			</div>
 		</header>
-		<section class="row padding">
-			<h2 class="col-sm-2 col-sm-offset-1 padding">
-				Work Experiences</h2>
-			<div class="col-sm-8 col-sm-offset-1 padding">
-				<h4>The Cigar Lab Co.</h4>
-				<span class="work-title">Full Stack Developer</span>
-				<div>
-					<span class="work-date">January 15 - Present</span>
-					<span class="work-location">Miami, FL, USA</span>
+		<section class="row padding section">
+				<h2 class="padding section-title">
+					Work Experiences
+				</h2>
+				<div class="padding section-content" >
+					<div class="work-exp">
+						<h4>The Cigar Lab Co.</h4>
+						<span class="work-title">Full Stack Developer</span>
+						<div>
+							<span class="work-date">January 2015 - Present</span>
+							<span class="work-location">Miami, FL, USA</span>
+						</div>
+						<div class="work-desc">
+							Development of Cigar Scanner, #1 cigar app on iOS and Android, with 10K+ users.
+							<ul>
+								<li>
+									Devolpement of hybrid apps based on Ionic (Angular.js)
+								</li>
+								<li>
+									Developement and administration of an API based on .Net MVC API with a NoSQL database
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="work-exp">
+						<h4>Vendilis</h4>
+						<span class="work-title">Full Stack Developer</span>
+						<div>
+							<span class="work-date">April 2013 - December 2014</span>
+							<span class="work-location">Miami, FL, USA</span>
+						</div>
+						<div class="work-desc">
+							Development of an e-commerce platform using ASP.Net, T-SQL
+							<ul>
+								<li>
+									Creation of a marketplace for retailers
+								</li>
+								<li>
+									Automation of processes (newsletter, reporting tools)
+								</li>
+								<li>
+									Responsive design with server-side components and cross-browser development
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="work-exp">
+						<h4>Emojam</h4>
+						<span class="work-title">Lead Backend</span>
+						<div>
+							<span class="work-date">Septembre 2014 - Septembre 2015 (side project)</span>
+						</div>
+						<div class="work-desc">
+							Backend Creation and Administration, using Azure Cloud Services
+							<ul>
+								<li>
+									Development and administration of an API (.Net MVC) to serve mobile applications
+								</li>
+								<li>
+									Design and administration of the database (T-SQL)
+								</li>
+								<li>
+									Server administration
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="work-exp">
+						<h4>Airbus</h4>
+						<span class="work-title">Intern</span>
+						<div>
+							<span class="work-date">June 2012 - July 2012</span>
+							<span class="work-location">Toulouse, France</span>
+						</div>
+						<div class="work-desc">
+							Development of a software (Java) to remotely - via SNMP protocol - monitor the parameters of the avionic test benches
+						</div>
+					</div>
+					<div class="work-exp">
+						<h4>Cap Gemini</h4>
+						<span class="work-title">Intern</span>
+						<div>
+							<span class="work-date">June 2011</span>
+							<span class="work-location">Toulouse, France</span>
+						</div>
+						<div class="work-desc">
+							Business unit support and network cartography
+						</div>
+					</div>
 				</div>
-				<div class="work-desc">
-					Development of Cigar Scanner, #1 cigar app on iOS and Android, with 10K+ users.
+		</section>
+		<section class="row padding section">
+			<h2 class="padding section-title">
+				Education</h2>
+			<div class="section-content padding">
+				<div class="school">
+					<h3>ECE Paris, France</h3>
+					<span>2009 - 2014</span>
+					<h4>Master of Science in Computer Science - Engineer Diploma</h4>
 					<ul>
-						<li>
-							Devolpement of hybrid apps based on Ionic (Angular.js)
-						</li>
-						<li>
-							Developement and administration of an API based on .Net MVC API with a NoSQL database
-						</li>
+						<li>Project Management</li>
+						<li>Software Development</li>
+						<li>Web Development</li>
+						<li>Networks</li>
+						<li>Ergonomy</li>
+						<li>IT security</li>
 					</ul>
+				</div>
+				<div class="school">
+					<h3>University of California, San Diego</h3>
+					<span>2013</span>
+					<h4>Semester Abroad - Certificate Program</h4>
+					<ul>
+						<li>Data Mining</li>
+						<li>Project Management</li>
+						<li>Web Development</li>
+					</ul>
+				</div>
+				<div class="school">
+					<h3>Inti international university, Kuala Lumpur, Malaysia</h3>
+					<span>2011</span>
+					<h4>Semester Abroad - Electrical Engineering</h4>
 				</div>
 			</div>
 		</section>
-		<section class="row padding">
-			<h2 class="col-sm-2 col-sm-offset-1 padding">
-				Education</h2>
-			<div class="col-sm-8 col-sm-offset-1 padding">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		<section class="row padding section">
+			<h2 class="padding section-title">
+				Skills</h2>
+			<div class="section-content padding">
+				<div class="skill">
+					<span>OS</span>
+					<ul>
+						<li>Mac OS X</li>
+						<li>Windows</li>
+						<li>Ubuntu</li>
+					</ul>
+				</div>
+				<div class="skill">
+					<span>Programming</span>
+					<ul>
+						<li></li>
+					</ul>
+				</div>
 			</div>
 		</section>
 	</main>
