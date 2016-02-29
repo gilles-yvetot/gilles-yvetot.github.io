@@ -11,10 +11,10 @@
 		background:#f5f4f1;
 		color:#444;
 		font-family: "Raleway",Helvetica, Arial, sans-serif;
-		font-weight: 300;
+		font-weight: 500;
 	}
 	h1,h2,h3,h4{
-		font-weight: 500;
+		font-weight: 300;
 	}
 	a{
 		color: inherit;
@@ -25,6 +25,23 @@
 		color: black;
 		text-decoration: none;
 	}
+	ul {
+	  list-style: none;
+	  padding: 0;
+	}
+	li {
+	  padding-left: 1.3em;
+	}
+	li:before {
+	  content: "\f105"; /* FontAwesome Unicode */
+	  font-family: FontAwesome;
+	  display: inline-block;
+	  margin-left: -1.3em; /* same as padding-left set on li */
+	  width: 1.3em; /* same as padding-left set on li */
+	  color: black;
+      font-weight: bold;
+	}
+
 	.padding{
 		padding: 10px;
 	}
@@ -184,14 +201,41 @@
     	letter-spacing: -1px;
 
 	}
+	section{
+		position: relative;
+	}
+	.work-exp{
+    	padding: 20px 10px;
+	}
+	.company{
+	    display: inline-block;
+	    color: #222;
+	    font-size: 18px;
+	    margin: 0;
+	}
+	.work-location{
+		font-style: italic;
+		font-size: 14px;
+		padding-left: 15px;
+	}
+	.work-title{
+		font-size: 20px;
+		color: black;
+	}
+	.work-date{
+	    float: right;
+	    font-style: italic;
+	    color: #222;
+	    font-size: 16px;
+	}
+	.work-desc{
+	}
 	</style>
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> 
-	<script type="text/javascript"> // pin element
-	(function(e){"use strict";e.fn.pin=function(t){var n=0,r=[],i=false,s=e(window);t=t||{};var o=function(){for(var n=0,o=r.length;n<o;n++){var u=r[n];if(t.minWidth&&s.width()<=t.minWidth){if(u.parent().is(".pin-wrapper")){u.unwrap()}u.css({width:"",left:"",top:"",position:""});if(t.activeClass){u.removeClass(t.activeClass)}i=true;continue}else{i=false}var a=t.containerSelector?u.closest(t.containerSelector):e(document.body);var f=u.offset();var l=a.offset();var c=u.offsetParent().offset();if(!u.parent().is(".pin-wrapper")){u.wrap("<div class='pin-wrapper'>")}var h=e.extend({top:0,bottom:0},t.padding||{});u.data("pin",{pad:h,from:(t.containerSelector?l.top:f.top)-h.top,to:l.top+a.height()-u.outerHeight()-h.bottom,end:l.top+a.height(),parentTop:c.top});u.css({width:u.outerWidth()});u.parent().css("height",u.outerHeight())}};var u=function(){if(i){return}n=s.scrollTop();var o=[];for(var u=0,a=r.length;u<a;u++){var f=e(r[u]),l=f.data("pin");if(!l){continue}o.push(f);var c=l.from-l.pad.bottom,h=l.to-l.pad.top;if(c+f.outerHeight()>l.end){f.css("position","");continue}if(c<n&&h>n){!(f.css("position")=="fixed")&&f.css({left:f.offset().left,top:l.pad.top}).css("position","fixed");if(t.activeClass){f.addClass(t.activeClass)}}else if(n>=h){f.css({left:"",top:h-l.parentTop+l.pad.top}).css("position","absolute");if(t.activeClass){f.addClass(t.activeClass)}}else{f.css({position:"",top:"",left:""});if(t.activeClass){f.removeClass(t.activeClass)}}}r=o};var a=function(){o();u()};this.each(function(){var t=e(this),n=e(this).data("pin")||{};if(n&&n.update){return}r.push(t);e("img",this).one("load",o);n.update=a;e(this).data("pin",n)});s.scroll(u);s.resize(function(){o()});o();s.load(a);return this}})(jQuery)
-	</script>
+
 	<script type="text/javascript">
 	function generateSVGhexagone(width){
 		if(!width || isNaN(width))
@@ -213,9 +257,8 @@
 		svg.appendChild(poly);
 		document.getElementsByTagName("header")[0].appendChild(svg)
 	}
-	$(function(){
+	$(window).ready(function(){
 		//generateSVGhexagone(250);
-		// $(".section-title").pin()
 	})
 
 	</script>
@@ -272,16 +315,16 @@
 			</div>
 		</header>
 		<section class="row padding section">
-				<h2 class="padding section-title">
+				<h2 class="section-title padding">
 					Work Experiences
 				</h2>
 				<div class="padding section-content" >
 					<div class="work-exp">
-						<h4>The Cigar Lab Co.</h4>
-						<span class="work-title">Full Stack Developer</span>
+						<h4 class="company">The Cigar Lab Co.</h4>
+						<span class="work-location">Miami, FL, USA</span>
 						<div>
+							<span class="work-title">Full Stack Developer</span>
 							<span class="work-date">January 2015 - Present</span>
-							<span class="work-location">Miami, FL, USA</span>
 						</div>
 						<div class="work-desc">
 							Development of Cigar Scanner, #1 cigar app on iOS and Android, with 10K+ users.
@@ -290,17 +333,17 @@
 									Devolpement of hybrid apps based on Ionic (Angular.js)
 								</li>
 								<li>
-									Developement and administration of an API based on .Net MVC API with a NoSQL database
+									Developement and maintenance of an API based on .Net MVC API with a NoSQL database
 								</li>
 							</ul>
 						</div>
 					</div>
 					<div class="work-exp">
-						<h4>Vendilis</h4>
-						<span class="work-title">Full Stack Developer</span>
+						<h4  class="company">Vendilis</h4>
+						<span class="work-location">Miami, FL, USA</span>
 						<div>
+							<span class="work-title">Full Stack Developer</span>
 							<span class="work-date">April 2013 - December 2014</span>
-							<span class="work-location">Miami, FL, USA</span>
 						</div>
 						<div class="work-desc">
 							Development of an e-commerce platform using ASP.Net, T-SQL
@@ -318,16 +361,20 @@
 						</div>
 					</div>
 					<div class="work-exp">
-						<h4>Emojam</h4>
-						<span class="work-title">Lead Backend</span>
+						<h4 class="company">Emojam</h4>
+						<span class="work-location">Remotely</span>
 						<div>
-							<span class="work-date">Septembre 2014 - Septembre 2015 (side project)</span>
+							<span class="work-title">Lead Backend</span>
+							<span class="work-date">Septembre 2014 - Septembre 2015</span>
 						</div>
 						<div class="work-desc">
 							Backend Creation and Administration, using Azure Cloud Services
 							<ul>
 								<li>
-									Development and administration of an API (.Net MVC) to serve mobile applications
+									Development and administration of a RESTful API (.Net MVC) to serve mobile applications
+								</li>
+								<li>
+									Development and administration of a Back Office (.Net - Razor - Entity framework (CRUD))
 								</li>
 								<li>
 									Design and administration of the database (T-SQL)
@@ -339,10 +386,10 @@
 						</div>
 					</div>
 					<div class="work-exp">
-						<h4>Airbus</h4>
-						<span class="work-title">Intern</span>
+						<h4 class="company">Airbus</h4>
+						<span class="work-date">June 2012 - July 2012</span>
 						<div>
-							<span class="work-date">June 2012 - July 2012</span>
+							<span class="work-title">Intern</span>
 							<span class="work-location">Toulouse, France</span>
 						</div>
 						<div class="work-desc">
@@ -350,11 +397,11 @@
 						</div>
 					</div>
 					<div class="work-exp">
-						<h4>Cap Gemini</h4>
-						<span class="work-title">Intern</span>
+						<h4 class="company">Cap Gemini</h4>
+						<span class="work-location">Toulouse, France</span>
 						<div>
+							<span class="work-title">Intern</span>
 							<span class="work-date">June 2011</span>
-							<span class="work-location">Toulouse, France</span>
 						</div>
 						<div class="work-desc">
 							Business unit support and network cartography
@@ -390,7 +437,7 @@
 					</ul>
 				</div>
 				<div class="school">
-					<h3>Inti international university, Kuala Lumpur, Malaysia</h3>
+					<h3>INTI international university, Kuala Lumpur, Malaysia</h3>
 					<span>2011</span>
 					<h4>Semester Abroad - Electrical Engineering</h4>
 				</div>
@@ -409,9 +456,36 @@
 					</ul>
 				</div>
 				<div class="skill">
+					<span>Source Control</span>
+					<ul>
+						<li>Git (CLI or SourceTree)</li>
+						<li>Subversion (Tortoise SVN) </li>
+						<li>Team Foundation Server</li>
+					</ul>
+				</div>
+				<div class="skill">
 					<span>Programming</span>
 					<ul>
-						<li></li>
+						<li>Javascript - Node.js - Angular - Ionic - jQuery</li>
+						<li>.Net MVC- ASP - Entity Framework - C# - Razor</li>
+						<li>T-SQL - NoSQL - MySQL</li>
+						<li>HTML 5 - CSS 3 - Less - Sass</li>
+						<li>JAVA - PHP - C - C++</li>
+					</ul>
+				</div>
+				<div class="skill">
+					<span>Management</span>
+					<ul>
+						<li>BaseCamp - Trello - Slack</li>
+						<li>UML</li>
+						<li>SCRUM</li>
+					</ul>
+				</div>
+				<div class="skill">
+					<span>Miscellaneous</span>
+					<ul>
+						<li>InDesign</li>
+						<li>Arduino</li>
 					</ul>
 				</div>
 			</div>
