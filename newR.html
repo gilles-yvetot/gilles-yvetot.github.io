@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Raleway:500,300,700' rel='stylesheet' type='text/css'>
+	<style type="text/css">
+	body{
+		background:#f5f4f1;
+		color:#444;
+		font-family: "Raleway",Helvetica, Arial, sans-serif;
+		font-weight: 500;
+	}
+	h1,h2,h3,h4{
+		font-weight: 300;
+	}
+	a{
+		color: inherit;
+		cursor: pointer;
+		transition:color 1s ease;
+	}
+	a:hover{
+		color: black;
+		text-decoration: none;
+	}
+	ul {
+	  list-style: none;
+	  padding: 0;
+	}
+	li {
+	  padding-left: 1.3em;
+	}
+	li:before {
+	  content: "\f105"; /* FontAwesome Unicode */
+	  font-family: FontAwesome;
+	  display: inline-block;
+	  margin-left: -1.3em; /* same as padding-left set on li */
+	  width: 1.3em; /* same as padding-left set on li */
+	  color: black;
+      font-weight: bold;
+	}
+
+	.padding{
+		padding: 10px;
+	}
+	.vtop{
+		vertical-align: top;
+	}
+	.flexbox{
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+
+	}
+	.flexbox.column{
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		height: 100%;
+	}
+	.flexbox.center
+	{
+		-webkit-box-align:center;
+		-moz-box-align:center;
+		align-items:center;
+
+		-moz-justify-content:center;
+		-webkit-justify-content:center;
+		justify-content:center;
+	}
+	.flex-grow{
+		-webkit-box-flex: 1;
+		-webkit-flex: 1 0 auto;
+		-ms-flex: 1 0 auto;
+		flex: 1 0 auto;
+		justify-content: center;
+	}
+	.flex-no-shrink-no-grow{
+		-webkit-box-flex: 0;
+		-webkit-flex: 0 0 auto;
+		-ms-flex: 0 0 auto;
+		flex: 0 0 auto;
+	}
+	.flex-grow-shrink{
+		-webkit-box-flex: 1;
+		-webkit-flex: 1 1 0;
+		-ms-flex: 1 1 0;
+		flex: 1 1 0;
+	}
+	#profile{
+		width:150px;
+		height:150px;
+		background-image: url("https://scontent-mia1-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/12644861_10153901322974393_5731141098433000644_n.jpg?oh=734921cab8e496d074db48f605a83e0e&oe=572B81E8");
+		background-size: contain;
+		position: relative;
+		border-radius: 10%;
+		border: 2px solid #34495e;
+		display: inline-block;
+
+	}
+	#profile:before			{
+		position: absolute;
+		top:0;
+		right: 0;
+		left:0;
+		bottom: 0;
+		border: 5px solid #2c3e50;
+		border-radius: 7%;
+		content:" ";
+	}
+	aside.flexbox.column {
+		float: left;
+		min-width: 200px;
+		overflow: hidden;
+		background: white;
+		height: 100vh;
+		min-width: 200px;
+		text-align: center;
+	}
+	
+	
+	.menu-item h2{
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-weight: bold;
+		font-size: 20px;
+		margin: 0 5px;
+	}
+	.line{
+		text-align: center;
+		position: relative;
+		border-bottom:1px solid #ccc;
+		width: 100%;
+		margin-bottom: 10px;
+		top: -10px;
+		margin: 0 10px;
+	}
+	.line >div{
+		min-width: 20px;
+		display: inline-block;
+		position: relative;
+		background: white;
+		top: 13px;
+		padding: 2px;
+	}
+	.line i{
+		padding: 0 4px 0 5px;
+	}
+
+	
+	main{
+		float: right;
+		width: 90%;
+		height: 100vh;
+		background: url("noise.png");
+		padding:20px;
+		overflow-x:hidden;
+		overflow-y:scroll;
+	}
+	main section >div:last-child{
+		padding-bottom: 10px;
+		border-bottom: 1px solid #ccc;
+	}
+	header{
+		text-align: center;
+
+	}
+	header h1{
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+	.section-title{
+		float:left;
+		max-width: 100px;
+		margin: 20px 30px;
+	}
+	.section-content{
+		width: 66%;
+		margin-left: 33%;
+	}
+	#contact-info{
+		/*heaxagon generated in svg by the fct below and then translated into data URI (width of250px)*/
+		background-image: url('data:image/svg+xml;utf8,<svg width="250" height="250" xmlns="http://www.w3.org/2000/svg" version="1.1"><polygon points="125,2 248,83 248,166 125,248 2,166 2,83 " style="stroke: #ccc; stroke-width: 1px; fill: none;"></polygon></svg>');
+		display: inline-block;
+		width: 250px;
+		height: 250px;
+		padding: 55px 0;
+	}
+	#contact-info > div{
+		display: inline-block;
+	}
+	#contact-info h3{
+		font-size: 30px;
+    	margin: 15px 0px;
+    	text-transform: uppercase;
+    	letter-spacing: -1px;
+
+	}
+	section{
+		position: relative;
+	}
+	.work-exp{
+    	padding: 20px 10px;
+	}
+	.company{
+	    display: inline-block;
+	    color: #222;
+	    font-size: 18px;
+	    margin: 0;
+	}
+	.work-location{
+		font-style: italic;
+		font-size: 14px;
+		padding-left: 15px;
+	}
+	.work-title{
+		font-size: 20px;
+		color: black;
+	}
+	.work-date{
+	    float: right;
+	    font-style: italic;
+	    color: #222;
+	    font-size: 14px;
+	}
+	.work-desc{
+	}
+	.skill{
+		display: inline-block;
+		padding-right: 30px;
+		vertical-align: top;
+	}
+	</style>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> 
+	<script type="text/javascript">
+		// smooth scrolling
+		$(function() {
+		  // $('a[href*="#"]:not([href="#"])').click(function() {
+		  //   if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+		  //     var target = $(this.hash);
+		  //     if (target.length) {
+		  //     	console.log(target.offset().top)
+		  //     	console.log(target)
+		  //       $('main').animate({
+		  //         scrollTop: target.offset().top
+		  //       }, 1000);
+		  //       return false;
+		  //     }
+		  //   }
+		  // });
+		// $('a').click(function() {
+		//     var href = $.attr(this, 'href');
+		//     $('main').animate({
+		//         scrollTop: $(href).offset().top
+		//     }, 900, function () {
+		//         window.location.hash = href;
+		//     });
+		//     return false;
+		// });
+
+		});
+
+	</script>
+	<script type="text/javascript">
+	function generateSVGhexagone(width){
+		if(!width || isNaN(width))
+			return null;
+
+		var svg= document.createElementNS("http://www.w3.org/2000/svg", "svg")
+		svg.setAttribute("width",width);
+		svg.setAttribute("height",width);
+		var poly = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+		poly.setAttribute("points",   parseInt(width/2)+ ",2 "
+									+parseInt(width-2)+","+parseInt(width/3)+" "
+									+parseInt(width-2)+","+parseInt(2*width/3)+" "
+									+parseInt(width/2)+","+parseInt(width-2)+" "
+									+"2,"+parseInt(2*width/3)+" "
+									+"2,"+parseInt(width/3)+" "
+						)
+		poly.style="stroke:#444;stroke-width:2;fill:none;"
+
+		svg.appendChild(poly);
+		document.getElementsByTagName("header")[0].appendChild(svg)
+	}
+	$(window).ready(function(){
+		//generateSVGhexagone(250);
+	})
+
+	</script>
+
+</head>
+<body class="flexbox">
+	<aside class="flex-no-shrink-no-grow padding flexbox column center">
+		<a href="#work" class="menu-item padding flex-grow-shrink flexbox column center">
+			<h2>Work Experiences</h2>
+			<div class="line">
+				<div>
+					<i class="fa fa-television"></i>
+				</div>
+			</div>
+		</a>
+		<a href="#education" class="menu-item padding flex-grow-shrink flexbox column center">
+			<h2>Education</h2>
+			<div class="line">
+				<div>
+					<i class="fa fa-television"></i>
+				</div>
+			</div>
+		</a>
+		<a href="#skills" class="menu-item padding flex-grow-shrink flexbox column center">
+			<h2>Skills</h2>
+			<div class="line">
+				<div>
+					<i class="fa fa-television"></i>
+				</div>
+			</div>
+		</a>
+		
+	</aside>
+	<main class="flex-grow-shrink">
+		<header>
+			<div id="contact-info">
+				<div>
+					<a href="tel:+1(786)379-4110">
+						<i class="fa fa-phone-square"></i>&nbsp;
+						+1(786)379-4110
+					</a>
+				</div>
+				<div>
+					<a href="mailto:g.yvetot@gmail.com">
+						<i class="fa fa-envelope"></i>&nbsp;
+						g.yvetot@gmail.com
+					</a>
+				</div>
+				<h3>Gilles Yvetot</h3>
+				<div>
+					Working with <i class="fa fa-heart"></i><br/>
+					from Miami <i class="fa fa-sun-o"></i> to the <i class="fa fa-globe"></i>
+				</div>
+			</div>
+		</header>
+		<section class="row padding section" id="work">
+				<h2 class="section-title padding">
+					Work Experiences
+				</h2>
+				<div class="padding section-content" >
+					<div class="work-exp">
+						<h4 class="company">The Cigar Lab Co.</h4>
+						<span class="work-location">Miami, FL, USA</span>
+						<div>
+							<span class="work-title">Full Stack Developer</span>
+							<span class="work-date">January 2015 - Present</span>
+						</div>
+						<div class="work-desc">
+							Development of Cigar Scanner, #1 cigar app on iOS and Android, with 10K+ users.
+							<ul>
+								<li>
+									Devolpement of hybrid apps based on Ionic (Angular.js)
+								</li>
+								<li>
+									Developement and maintenance of an API based on .Net MVC API with a NoSQL database
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="work-exp">
+						<h4  class="company">Vendilis</h4>
+						<span class="work-location">Miami, FL, USA</span>
+						<div>
+							<span class="work-title">Full Stack Developer</span>
+							<span class="work-date">April 2013 - December 2014</span>
+						</div>
+						<div class="work-desc">
+							Development of an e-commerce platform using ASP.Net, T-SQL
+							<ul>
+								<li>
+									Creation of a marketplace for retailers
+								</li>
+								<li>
+									Automation of processes (newsletter, reporting tools)
+								</li>
+								<li>
+									Responsive design with server-side components and cross-browser development
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="work-exp">
+						<h4 class="company">Emojam</h4>
+						<span class="work-location">Remotely</span>
+						<div>
+							<span class="work-title">Lead Backend</span>
+							<span class="work-date">Septembre 2014 - Septembre 2015</span>
+						</div>
+						<div class="work-desc">
+							Backend Creation and Administration, using Azure Cloud Services
+							<ul>
+								<li>
+									Development and administration of a RESTful API (.Net MVC) to serve mobile applications
+								</li>
+								<li>
+									Development and administration of a Back Office (.Net - Razor - Entity framework (CRUD))
+								</li>
+								<li>
+									Design and administration of the database (T-SQL)
+								</li>
+								<li>
+									Server administration
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="work-exp">
+						<h4 class="company">Airbus</h4>
+						<span class="work-date">June 2012 - July 2012</span>
+						<div>
+							<span class="work-title">Intern</span>
+							<span class="work-location">Toulouse, France</span>
+						</div>
+						<div class="work-desc">
+							Development of a software (Java) to remotely - via SNMP protocol - monitor the parameters of the avionic test benches
+						</div>
+					</div>
+					<div class="work-exp">
+						<h4 class="company">Cap Gemini</h4>
+						<span class="work-location">Toulouse, France</span>
+						<div>
+							<span class="work-title">Intern</span>
+							<span class="work-date">June 2011</span>
+						</div>
+						<div class="work-desc">
+							Business unit support and network cartography
+						</div>
+					</div>
+				</div>
+		</section>
+		<section class="row padding section" id="education">
+			<h2 class="padding section-title">
+				Education</h2>
+			<div class="section-content padding">
+				<div class="school">
+					<h3>ECE Paris, France</h3>
+					<span>2009 - 2014</span>
+					<h4>Master of Science in Computer Science - Engineer Diploma</h4>
+					<ul>
+						<li>Project Management</li>
+						<li>Software Development</li>
+						<li>Web Development</li>
+						<li>Networks</li>
+						<li>Ergonomy</li>
+						<li>IT security</li>
+					</ul>
+				</div>
+				<div class="school">
+					<h3>University of California, San Diego</h3>
+					<span>2013</span>
+					<h4>Semester Abroad - Certificate Program</h4>
+					<ul>
+						<li>Data Mining</li>
+						<li>Project Management</li>
+						<li>Web Development</li>
+					</ul>
+				</div>
+				<div class="school">
+					<h3>INTI international university, Kuala Lumpur, Malaysia</h3>
+					<span>2011</span>
+					<h4>Semester Abroad - Electrical Engineering</h4>
+				</div>
+			</div>
+		</section>
+		<section class="row padding section" id="skills">
+			<h2 class="padding section-title">
+				Skills</h2>
+			<div class="section-content padding">
+				<div class="skill">
+					<span>OS</span>
+					<ul>
+						<li>Mac OS X</li>
+						<li>Windows</li>
+						<li>Ubuntu</li>
+					</ul>
+				</div>
+				<div class="skill">
+					<span>Source Control</span>
+					<ul>
+						<li>Git (CLI or SourceTree)</li>
+						<li>Subversion (Tortoise SVN) </li>
+						<li>Team Foundation Server</li>
+					</ul>
+				</div>
+				<div class="skill">
+					<span>Programming</span>
+					<ul>
+						<li>Javascript - Node.js - Angular - Ionic - jQuery</li>
+						<li>.Net MVC- ASP - Entity Framework - C# - Razor</li>
+						<li>T-SQL - NoSQL - MySQL</li>
+						<li>HTML 5 - CSS 3 - Less - Sass</li>
+						<li>JAVA - PHP - C - C++</li>
+					</ul>
+				</div>
+				<div class="skill">
+					<span>Management</span>
+					<ul>
+						<li>BaseCamp - Trello - Slack</li>
+						<li>UML</li>
+						<li>SCRUM</li>
+					</ul>
+				</div>
+				<div class="skill">
+					<span>Miscellaneous</span>
+					<ul>
+						<li>InDesign</li>
+						<li>Arduino</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+	</main>
+</body>
+</html>
