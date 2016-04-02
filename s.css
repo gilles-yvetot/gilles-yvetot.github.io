@@ -1,0 +1,245 @@
+body{
+	background:#f5f4f1;
+	color:#444;
+	font-family: "Raleway",Helvetica, Arial, sans-serif;
+	font-weight: 500;
+}
+h1,h2,h3,h4{
+	font-weight: 300;
+}
+a{
+	color: inherit;
+	cursor: pointer;
+	transition:color 1s ease;
+}
+a:hover{
+	color: black;
+	text-decoration: none;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  padding-left: 1.3em;
+}
+li:before {
+  content: "\f105"; /* FontAwesome Unicode */
+  font-family: FontAwesome;
+  display: inline-block;
+  margin-left: -1.3em; /* same as padding-left set on li */
+  width: 1.3em; /* same as padding-left set on li */
+  color: black;
+  font-weight: bold;
+}
+
+.padding{
+	padding: 10px;
+}
+.vtop{
+	vertical-align: top;
+}
+.flexbox{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+
+}
+.flexbox.column{
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	height: 100%;
+}
+.flexbox.center
+{
+	-webkit-box-align:center;
+	-moz-box-align:center;
+	align-items:center;
+
+	-moz-justify-content:center;
+	-webkit-justify-content:center;
+	justify-content:center;
+}
+.flex-grow{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 0 auto;
+	-ms-flex: 1 0 auto;
+	flex: 1 0 auto;
+	justify-content: center;
+}
+.flex-no-shrink-no-grow{
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 auto;
+	-ms-flex: 0 0 auto;
+	flex: 0 0 auto;
+}
+.flex-grow-shrink{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 1 0;
+	-ms-flex: 1 1 0;
+	flex: 1 1 0;
+}
+#profile{
+	width:150px;
+	height:150px;
+	background-image: url("https://scontent-mia1-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/12644861_10153901322974393_5731141098433000644_n.jpg?oh=734921cab8e496d074db48f605a83e0e&oe=572B81E8");
+	background-size: contain;
+	position: relative;
+	border-radius: 10%;
+	border: 2px solid #34495e;
+	display: inline-block;
+
+}
+#profile:before			{
+	position: absolute;
+	top:0;
+	right: 0;
+	left:0;
+	bottom: 0;
+	border: 5px solid #2c3e50;
+	border-radius: 7%;
+	content:" ";
+}
+aside.flexbox.column {
+	float: left;
+	min-width: 200px;
+	overflow: hidden;
+	background: white;
+	height: 100vh;
+	min-width: 200px;
+	text-align: center;
+}
+
+
+.menu-item h2{
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: bold;
+	font-size: 20px;
+	margin: 0 5px;
+}
+.line{
+	text-align: center;
+	position: relative;
+	border-bottom:1px solid #ccc;
+	width: 100%;
+	margin-bottom: 10px;
+	top: -10px;
+	margin: 0 10px;
+}
+.line >div{
+	min-width: 20px;
+	display: inline-block;
+	position: relative;
+	background: white;
+	top: 13px;
+	padding: 2px;
+}
+.line i{
+	padding: 0 4px 0 5px;
+}
+
+
+main{
+	float: right;
+	width: 90%;
+	height: 100vh;
+	background: url("noise.png");
+	padding:20px;
+	overflow-x:hidden;
+	overflow-y:scroll;
+}
+main section >div:last-child{
+	padding-bottom: 10px;
+	border-bottom: 1px solid #ccc;
+}
+header{
+	text-align: center;
+
+}
+header h1{
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+.section-title{
+	float:left;
+	max-width: 100px;
+	margin: 20px 30px;
+}
+.section-content{
+	width: 66%;
+	margin-left: 33%;
+}
+#contact-info{
+	/*heaxagon generated in svg by the fct below and then translated into data URI (width of250px)*/
+	background-image: url('data:image/svg+xml;utf8,<svg width="250" height="250" xmlns="http://www.w3.org/2000/svg" version="1.1"><polygon points="125,2 248,83 248,166 125,248 2,166 2,83 " style="stroke: #ccc; stroke-width: 1px; fill: none;"></polygon></svg>');
+	display: inline-block;
+	width: 250px;
+	height: 250px;
+	padding: 55px 0;
+}
+#contact-info > div{
+	display: inline-block;
+}
+#contact-info h3{
+	font-size: 30px;
+	margin: 15px 0px;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+
+}
+section{
+	position: relative;
+}
+.work-exp{
+	padding: 20px 10px;
+}
+.company{
+    display: inline-block;
+    color: #222;
+    font-size: 18px;
+    margin: 0;
+}
+.work-location{
+	font-style: italic;
+	font-size: 14px;
+	padding-left: 15px;
+}
+.work-title{
+	font-size: 20px;
+	color: black;
+}
+.work-date{
+    float: right;
+    font-style: italic;
+    color: #222;
+    font-size: 14px;
+}
+.work-desc{
+}
+.skill{
+	display: inline-block;
+	padding-right: 30px;
+	vertical-align: top;
+}
+@media (max-width: 1000px) {
+	aside.flexbox.column{
+		display: none;
+	}
+}
+@media (max-width: 768px) {
+	.section-title{
+		float: none;
+		max-width: 100%;
+		text-align: center;
+	}
+	.section-content{
+		margin-left: 0;
+		width: auto;
+		font-size: 16px;
+	}
+}
