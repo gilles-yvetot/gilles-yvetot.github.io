@@ -245,5 +245,6 @@ section{
 	body{
 		display: block;
 		padding-bottom: 40px;
+		padding-top: 40px;
 	}
 }
