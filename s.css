@@ -244,5 +244,6 @@ section{
 	}
 	body{
 		display: block;
+		padding-bottom: 40px;
 	}
 }
