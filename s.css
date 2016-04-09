@@ -249,4 +249,8 @@ section{
 		padding-bottom: 60px;
 		padding-top: 60px;
 	}
+	.work-date{
+	    display: block;
+	    float: none;
+	}
 }
