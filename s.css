@@ -138,11 +138,12 @@ aside.flexbox.column {
 	display: inline-block;
 	position: relative;
 	background: white;
-	top: 13px;
+	top: 16px;
 	padding: 2px;
 }
 .line i{
 	padding: 0 4px 0 5px;
+	font-size: 22px;
 }
 
 
@@ -193,7 +194,6 @@ header h1{
 	width: 250px;
 	height: 250px;
 	padding: 55px 0;
-	cursor: pointer;
 }
 #contact-info > div{
 	display: inline-block;
