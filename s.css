@@ -3,6 +3,7 @@ body{
 	color:#444;
 	font-family: "Raleway",Helvetica, Arial, sans-serif;
 	font-weight: 500;
+	margin: 0;
 }
 h1,h2,h3,h4{
 	font-weight: 300;
@@ -11,6 +12,7 @@ a{
 	color: inherit;
 	cursor: pointer;
 	transition:color 1s ease;
+	text-decoration: none;
 }
 a:hover{
 	color: black;
@@ -174,13 +176,24 @@ header h1{
 	width: 66%;
 	margin-left: 33%;
 }
+#motivation{
+	width: 350px;
+    margin: auto;
+    padding: 10px 5px;
+	color: black;
+    font-style: italic;
+    font-size: 15px;
+}
+
 #contact-info{
 	/*heaxagon generated in svg by the fct below and then translated into data URI (width of250px)*/
 	background-image: url('data:image/svg+xml;utf8,<svg width="250" height="250" xmlns="http://www.w3.org/2000/svg" version="1.1"><polygon points="125,2 248,83 248,166 125,248 2,166 2,83 " style="stroke: #ccc; stroke-width: 1px; fill: none;"></polygon></svg>');
+	background-repeat: no-repeat;
 	display: inline-block;
 	width: 250px;
 	height: 250px;
 	padding: 55px 0;
+	cursor: pointer;
 }
 #contact-info > div{
 	display: inline-block;
